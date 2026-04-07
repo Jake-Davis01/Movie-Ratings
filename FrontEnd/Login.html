@@ -14,17 +14,21 @@
     <div class="form-container">
       <h1>Sign In</h1>
 
-      <form id="form-box">
-        <i class="fa-regular fa-circle-user"></i>
-        <label for="Email">Email:</label>
-        <input type="text" id="username" name="username" required/>
-        <i class="fa-solid fa-lock"></i>
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required/>
+    <form id="form-box">
 
-        <input type="submit" class="main-btn" value="Login" />
-      </form>
+  <div class="input-group">
+    <i class="fas fa-envelope"></i>
+    <input type="email" placeholder="Email">
+  </div>
 
+  <div class="input-group">
+    <i class="fas fa-lock"></i>
+    <input type="password" placeholder="Password">
+  </div>
+
+  <button class="main-btn">Login</button>
+
+</form>
       <p class="switch-text">
         Don't have an account?
         <a href="signup.html">Sign Up</a>
