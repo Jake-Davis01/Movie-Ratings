@@ -1,85 +1,102 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Georgia", serif;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Georgia, serif;
 }
 
-/* Background image */
-body {
-  height: 100vh;
-  background: url('../Images/bg5.png') no-repeat center center/cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Background */
+body{
+  height:100vh;
+  background:url('../Images/bg5.png') no-repeat center/cover;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
-/* Dark overlay for readability */
-.overlay {
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 50, 40, 0.55);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+/* Card */
+.form-container{
+  width:380px;              
+  padding:40px 30px;       
+  background:rgba(255,255,255,0.12);
+  backdrop-filter:blur(12px);
 
-/* Center content */
-.login-container {
-  text-align: center;
-  color: #111;
+  border-radius:20px;
+
+  text-align:center;
+
+  box-shadow:0 15px 40px rgba(0,0,0,0.35);
 }
 
 /* Heading */
-.login-container h1 {
-  font-size: 28px;
-  margin-bottom: 40px;
-  color: #111;
+.form-container h1{
+  font-size:28px;          
+  margin-bottom:10px;
+  color:#111;
 }
 
-/* Form styling */
-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* Switch text */
+.switch-text{
+  margin-bottom:20px;
+  font-size:14px;       
+}
+
+.switch-text a{
+  color:#a21f25;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* Form layout */
+#form-box{
+  display:flex;
+  flex-direction:column;
+  gap:15px;                 
+}
+
+
+.input-group{
+  position:relative;
+}
+
+/* Icons inside input */
+.input-group i{
+  position:absolute;
+  left:12px;
+  top:50%;
+  transform:translateY(-50%);
+  color:#555;
 }
 
 /* Inputs */
-form input {
-  width: 260px;
-  padding: 12px;
-  margin: 10px 0;
-  border: none;
-  background: #ddd;
-  font-size: 12px;
-  letter-spacing: 1px;
-}
+.input-group input{
+  width:100%;
+  padding:12px 12px 12px 40px;  
 
-/* Forgot password */
-.extra {
-  width: 260px;
-  text-align: right;
-  margin-bottom: 10px;
-}
+  border:none;
+  border-radius:10px;
 
-.extra a {
-  font-size: 12px;
-  color: #333;
-  text-decoration: none;
+  background:rgba(255,255,255,0.85);
+  outline:none;
 }
 
 /* Button */
-button {
-  width: 160px;
-  padding: 10px;
-  border: none;
-  background: #ccc;
-  cursor: pointer;
-  font-size: 12px;
-  letter-spacing: 1px;
-  transition: 0.3s;
+.main-btn{
+  margin-top:10px;
+  padding:12px;
+
+  border:none;
+  border-radius:10px;
+
+  background:linear-gradient(135deg,#9b59b6,#6c5ce7);
+  color:white;
+
+  font-size:15px;
+  cursor:pointer;
+  transition:0.3s;
 }
 
-button:hover {
-  background: #bbb;
+.main-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.3);
 }
