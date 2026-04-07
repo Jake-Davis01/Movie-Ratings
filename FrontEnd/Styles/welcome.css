@@ -1,0 +1,138 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Georgia, serif;
+}
+
+/* Background */
+body{
+  height:100svh;
+  background:url('../Images/bg5.png') no-repeat center/cover;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+/* Overlay for cinematic feel */
+.hero{
+  position:relative;
+  width:100%;
+  height:100%;
+
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:linear-gradient(
+    to right,
+    rgba(0,0,0,0.7),
+    rgba(0,0,0,0.4)
+  );
+}
+
+/* Content */
+.hero-content{
+  position:relative;
+  text-align:center;
+  color:rgb(204, 78, 78);
+
+  max-width:500px;
+  padding:30px;
+
+  animation:fadeUp 1s ease;
+}
+
+/* Heading */
+.hero-content h1{
+  white-space:nowrap;
+  margin-bottom:20px;
+}
+
+/* Tagline */
+.tagline{
+  font-size:18px;
+  margin-bottom:30px;
+  line-height:1.5;
+  color:#ddd;
+}
+
+/* BUTTON (consistent across all pages) */
+.main-btn{
+  padding:14px 28px;
+
+  border:none;
+  border-radius:10px;
+
+  background:linear-gradient(135deg,#9b59b6,#6c5ce7);
+  color:white;
+
+  font-size:16px;
+  cursor:pointer;
+
+  transition:transform 0.25s ease, box-shadow 0.25s ease;
+
+  text-decoration:none;
+  display:inline-block;
+}
+
+/* Hover effect */
+.main-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Click / press effect */
+.main-btn:active{
+  transform:translateY(1px);
+  box-shadow:0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* Subtext */
+.subtext{
+  margin-top:20px;
+  font-size:14px;
+  color:#ccc;
+}
+
+.subtext a{
+  color:#a21f25;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* Animation */
+@keyframes fadeUp{
+  from{
+    opacity:0;
+    transform:translateY(40px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* Mobile */
+@media(max-width:480px){
+
+  .hero-content h1{
+    font-size:28px;
+    white-space:normal;
+  }
+
+  .tagline{
+    font-size:15px;
+  }
+
+  .main-btn{
+    width:100%;
+  }
+}
