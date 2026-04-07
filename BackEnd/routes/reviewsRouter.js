@@ -1,5 +1,12 @@
-function test() {
-    return "Hello"
-}
+import { Router } from 'express';
+import reviewsController from '../controllers/reviewsController.js';
 
-export default test;
+const reviewsRouter = Router();
+
+
+reviewsRouter.get("/:id", reviewsController.getUserReviews)
+
+
+reviewsRouter.post("/", reviewsController.newUserReviews);
+
+export default reviewsRouter;
