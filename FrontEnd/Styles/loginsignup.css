@@ -134,33 +134,65 @@ body{
 }
 
 /* Mobile Responsive */
-@media (max-width: 480px){
+@media (max-width:480px){
 
   body{
     padding:15px;
-    align-items:center; 
+    align-items:center;
   }
 
- .form-container {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(12px);
-  border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
-}
+  .form-container{
+    width:100%;
+    max-width:100%;
+    padding:25px 20px;
+    border-radius:18px;
+  }
 
   .form-container h1{
-    font-size:24px;
+    font-size:22px;
   }
 
-  #signup-form{
-    gap:12px;
+  /* Forms spacing */
+  #signup-form,
+  #login-form,
+  #security-question-form{
+    gap:14px;
   }
+
+  /* Inputs & dropdowns */
+  .input-group input,
+  .input-group select{
+    padding:12px 12px 12px 38px;
+    font-size:14px;
+  }
+
+  /* Icons */
+  .input-group i{
+    left:10px;
+    font-size:13px;
+  }
+
+  /* Button */
+  .main-btn{
+    width:100%;
+    padding:13px;
+    font-size:15px;
+  }
+
+  /* Links */
+  .switch-text{
+    font-size:13px;
+    margin-top:10px;
+  }
+
+  .forgot-password{
+    font-size:12px;
+  }
+}
 /* Security Question Dropdown */
 .input-group select{
   width:100%;
   padding:12px 40px;
-  margin-bottom:10px;
 
   border:none;
   border-radius:10px;
@@ -179,7 +211,7 @@ body{
   box-shadow:0 0 0 2px #6c5ce7;
 }
 
-/* Optional: better spacing for options */
+
 .input-group select option{
   color:#333;
 }
