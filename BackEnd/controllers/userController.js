@@ -3,14 +3,26 @@ import jwt from "jsonwebtoken";
 
 // register a new user
 async function register(req, res) {
-    const { email, password, securityQuestion, securityAnswer, username, name } = req.body;
+    const { email, password, username, name, securityQuestions } = req.body;
+
+    // extract just the first question from the array
+    const securityQuestion = securityQuestions[0].question;
+    const securityAnswer = securityQuestions[0].answer;
+
     try {
         const existingUser = await User.findByEmail(email);
         if (existingUser) {
             return res.status(409).send({ error: "Email already in use" });
         }
 
-        const newUser = await User.createUser({ email, password, securityQuestion, securityAnswer, username, name });
+        const newUser = await User.createUser({ 
+            email, 
+            password, 
+            securityQuestion, 
+            securityAnswer, 
+            username, 
+            name: name || username
+        });
         res.status(201).send({ message: "User registered successfully", user: newUser });
     } catch (err) {
         res.status(500).send({ error: err.message });
@@ -30,13 +42,37 @@ async function login(req, res) {
             return res.status(401).send({ error: "Invalid credentials" });
         }
 
+        // return security question instead of token at this stage
+        res.status(200).send({ 
+            success: true,
+            securityQuestion: user.securityQuestion
+        });
+
+    } catch (err) {
+        res.status(500).send({ error: err.message });
+    }
+}
+
+async function verifySecurityAnswer(req, res) {
+    const { email, answer } = req.body;
+    try {
+        const user = await User.findByEmail(email);
+        if (!user) {
+            return res.status(404).send({ error: "User not found" });
+        }
+
+        if (user.securityAnswer.toLowerCase() !== answer.toLowerCase()) {
+            return res.status(401).send({ error: "Incorrect security answer" });
+        }
+
+        // correct answer - now generate the token
         const token = jwt.sign(
             { user_id: user.id, username: user.username },
             process.env.SECRET_TOKEN,
             { expiresIn: "24h" }
         );
 
-        res.status(200).send({ token, user });
+        res.status(200).send({ success: true, token, user });
     } catch (err) {
         res.status(500).send({ error: err.message });
     }
@@ -99,4 +135,4 @@ async function deleteUser(req, res) {
     }
 }
 
-export default { register, login, getUser, updateUser, deleteUser, getMe };
+export default { register, login, verifySecurityAnswer, getUser, updateUser, deleteUser, getMe };
