@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+
+  <link rel="stylesheet" href="./Styles/loginsignup.css">
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+  <script src="./scripts/signup.js" defer></script>
+</head>
+<body>
+<div class="form-container">
+
+  <h1>Create Account</h1>
+
+  <p class="switch-text">
+    Already a member?
+    <a href="login.html">Log in</a>
+  </p>
+
+  <form id="signup-form">
+
+    <div class="input-group">
+      <i class="fa-regular fa-circle-user"></i>
+      <input type="text" id="username" name="username" placeholder="Username" required>
+    </div>
+
+    <div class="input-group">
+      <i class="fa-solid fa-envelope"></i>
+      <input type="email" id="email" name="email" placeholder="Email" required>
+    </div>
+
+    <div class="input-group">
+      <i class="fa-solid fa-lock"></i>
+      <input type="password" id="password" name="password" placeholder="Password" required>
+    </div>
+
+    <!-- Security Question 1 -->
+    <div class="input-group">
+      <i class="fa-solid fa-question"></i>
+      <select id="sec-question1" name="sec-question1" required>
+        <option value="">Select a security question...</option>
+        <option value="pet">Your first pet's name?</option>
+        <option value="teacher">Your favorite teacher?</option>
+        <option value="city">City you were born in?</option>
+        <option value="school">Name of your elementary school?</option>
+      </select>
+      <input type="text" id="sec-answer1" name="sec-answer1" placeholder="Answer" required>
+    </div>
+
+    <!-- Security Question 2 -->
+    <div class="input-group">
+      <i class="fa-solid fa-question"></i>
+      <select id="sec-question2" name="sec-question2" required>
+        <option value="">Select a security question...</option>
+        <option value="pet">Your first pet's name?</option>
+        <option value="teacher">Your favorite teacher?</option>
+        <option value="city">City you were born in?</option>
+        <option value="school">Name of your elementary school?</option>
+      </select>
+      <input type="text" id="sec-answer2" name="sec-answer2" placeholder="Answer" required>
+    </div>
+
+    <button type="submit" class="main-btn">Register</button>
+
+  </form>
+
+</div>
+</body>
+</html>

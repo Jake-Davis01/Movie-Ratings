@@ -40,7 +40,7 @@ async function getMovieDetails(title) {
         return mapForDB(movieData)
 
     } catch (err) {
-        console.error(`Error: {err}`)
+        console.error(`Error: ${err}`)
     }
     
 }
