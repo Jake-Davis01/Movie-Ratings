@@ -37,7 +37,8 @@ async function getMovieDetails(title) {
         
 
         console.log("Movie data found! 🎬", movieData)
-        return mapForDB(movieData)
+        //return mapForDB(movieData)
+        return movieData
 
     } catch (err) {
 <<<<<<< HEAD:FrontEnd/app.js
