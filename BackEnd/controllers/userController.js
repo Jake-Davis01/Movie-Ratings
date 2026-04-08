@@ -42,13 +42,37 @@ async function login(req, res) {
             return res.status(401).send({ error: "Invalid credentials" });
         }
 
+        // return security question instead of token at this stage
+        res.status(200).send({ 
+            success: true,
+            securityQuestion: user.securityQuestion
+        });
+
+    } catch (err) {
+        res.status(500).send({ error: err.message });
+    }
+}
+
+async function verifySecurityAnswer(req, res) {
+    const { email, answer } = req.body;
+    try {
+        const user = await User.findByEmail(email);
+        if (!user) {
+            return res.status(404).send({ error: "User not found" });
+        }
+
+        if (user.securityAnswer.toLowerCase() !== answer.toLowerCase()) {
+            return res.status(401).send({ error: "Incorrect security answer" });
+        }
+
+        // correct answer - now generate the token
         const token = jwt.sign(
             { user_id: user.id, username: user.username },
             process.env.SECRET_TOKEN,
             { expiresIn: "24h" }
         );
 
-        res.status(200).send({ token, user });
+        res.status(200).send({ success: true, token, user });
     } catch (err) {
         res.status(500).send({ error: err.message });
     }
@@ -111,4 +135,4 @@ async function deleteUser(req, res) {
     }
 }
 
-export default { register, login, getUser, updateUser, deleteUser, getMe };
+export default { register, login, verifySecurityAnswer, getUser, updateUser, deleteUser, getMe };
