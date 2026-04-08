@@ -1,124 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/home.css">
-    <script src="../js/home.js" defer></script>
+    <link rel="stylesheet" href="./Styles/home.css">
+     <script src="./Scripts/getUserReviews.js" defer></script>
     <title>MAD Movies</title>
 </head>
+
 <body>
+
     <body>
-    <div id="heading-text">
-        <span id="welcome-text">MAD Movies</span>
-        <div id="user-search">
-            <form action="/search" method="GET">
-            <input type="text" name="query" placeholder="Search...">
-            <button type="submit">Search</button>
-            </form>
-        </div>
-        <div id="user-menu">
-            <button id="user-btn">👤</button>
-            <div id="user-dropdown">
-                <a href="../pages/home-page.html"> Home</a>
-                <a href="../pages/index.html"> Logout</a>
+        <div id="heading-text">
+            <span id="welcome-text">MAD Movies</span>
+            <div id="user-search">
+                <form action="/search" method="GET">
+                    <input type="text" name="query" placeholder="Search...">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+            <div id="user-menu">
+                <button id="user-btn">👤</button>
+                <div id="user-dropdown">
+                    <a href="../pages/home-page.html"> Home</a>
+                    <a href="../pages/index.html"> Logout</a>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div id="page-sections">
+        <div id="page-sections">
 
-        <div id="all-game-options">
-            <h2>My Movie List</h2>
-            
+            <div id="add-section" class="game-option">
+                <form>
+                    <label for="mTitle">Movie Title:</label><br>
+                    <input type="text" id="mTitle" name="mTitle" value=""><br>
+                    <label for="mYear">Year</label><br>
+                    <input type="text" id="mYear" name="mYear" value=""><br><br>
+                    <label for="mYear">Rating</label><br>
+                    <input type="number" id="rating" name="rating" value=""><br><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+
+        </div>
+
+
+        <div id="user-reviews">
             <table>
-                  <tr>
-                    <th>Title</th>
-                    <th>Year</th>
-                    <th>Rating</th>
-                    <th>Action</th>
-                </tr>
-                <tr>
-                    <th>Interstellar</th>
-                    <th>2014</th>
-                    <th>5</th>
-                    <th><button type="button">Update Rating</button><button type="button">Delete Record</button></th>
-                </tr>
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Year</th>
+                        <th>Your Rating</th>
+                        <th>IMDB Rating</th>
+                        <th>Rotten Tomatoes Rating</th>
+                    </tr>
+                </thead>
+                <tbody id="reviews">
+
+                </tbody>
             </table>
-            <!-- <div id="game-1" class="game-option">
-                <span class="hover-badge">
-                    <span class="hover-badge-icon">👑</span>
-                    Enter the Tudor Court
-                </span>
-                <div class="game-img"><img src="../assets/TudorPic.png" alt="Henry VIII"></div>
-                <div class="game-info">
-                    <p class="game-title">Henry's New Wife</p>
-                    <p class="game-description">Try to survive Henry VIII's court as his new wife</p>
-                </div>
-                <span class="arrow">›</span>
-            </div>
-
-            <div id="game-2" class="game-option">
-                <span class="hover-badge">
-                    <span class="hover-badge-icon">𓂀</span>
-                    Journey to Egypt
-                </span>
-                <div class="game-img"><img src="../assets/PharoahPic.png" alt=""></div>
-                <div class="game-info">
-                    <p class="game-title">Adventure through Ancient Egypt</p>
-                    <p class="game-description">Travel through ancient Egypt, try not to upset the Gods</p>
-                </div>
-                <span class="arrow">›</span>
-            </div>
-
-            <div id="game-3" class="game-option">
-                <span class="hover-badge">
-                    <span class="hover-badge-icon">🎖️</span>
-                    Report for Duty
-                </span>
-                <div class="game-img"><img src="../assets/SoldierPic.png" alt=""></div>
-                <div class="game-info">
-                    <p class="game-title">WWII</p>
-                    <p class="game-description">Experience life on the front lines</p>
-                </div>
-                <span class="arrow">›</span>
-            </div> -->
-
         </div>
 
-        <div id="leaderboard">
-            <h2>Add Movie</h2>
-            <!-- <table>
-                <tr>
-                    <th>Name</th>
-                    <th>Score</th>
-                </tr>
-                <tr>
-                    <td>Whitney</td>
-                    <td>50</td>
-                </tr>
-                <tr>
-                    <td>Charlotte</td>
-                    <td>35</td>
-                </tr>
-                <tr>
-                    <td>Jake</td>
-                    <td>30</td>
-                </tr>
-            </table> -->
-              
-            <div id="add-section" class="game-option"> <form>
-                <label for="mTitle">Movie Title:</label><br>
-                <input type="text" id="mTitle" name="mTitle" value=""><br>
-                <label for="mYear">Year</label><br>
-                <input type="text" id="mYear" name="mYear" value=""><br><br>
-                <label for="mYear">Rating</label><br>
-                <input type="number" id="rating" name="rating" value=""><br><br>
-                <input type="submit" value="Submit">
-            </form> </div>
-        </div>
+    </body>
+</body>
 
-    </div>
-</body>
-</body>
 </html>

@@ -1,3 +1,4 @@
+
 //import {mapForDB, getMovieDetails} from "FrontEnd/app.js"
 
 // capture where the search values
