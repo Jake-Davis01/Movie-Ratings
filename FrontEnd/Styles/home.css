@@ -304,26 +304,48 @@ body {
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  width: 80%;
+  margin: auto;
+}
+
+.table-title {
+    width: 40%;
+}
+
+.table-year {
+    width: 15%;
+}
+
+table img {
+    width: 30%;
+    height: auto;
 }
 
 td, th {
   border: 2px solid var(--dark-outline);
-  text-align: left;
+  text-align: center;
   padding: 8px;
   font-size: 1.3rem;
 }
 
-tr:nth-child(odd) {
-  background-color: var(--light-outline);
-}
-
 th {
-   background-color: var(--dark-colour); 
-   color: var(--bg-colour);
+   background-color: var(--blue); 
+   color: var(--base3);
    font-size: 1.5rem;
 }
 
+<<<<<<< HEAD
 tr:nth-child(even) {
   background-color: #dddddd;
 }
+=======
+tr:nth-child(odd) {
+  background-color: var(--base2);
+}
+
+
+tr:nth-child(even) {
+  background-color: var(--base2);
+}
+
+>>>>>>> 46a5cfa89809974b059ba4f824008ab08eb8e6f3
