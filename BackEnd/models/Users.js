@@ -1,4 +1,4 @@
-const db = require("../database/connect")
+import db from "../database/connect.js";
 
 class User {
     constructor({user_id, email, password, security_question, security_answer, username, name,}) {
@@ -83,4 +83,4 @@ class User {
     }
 }
 
-module.exports = User
+export default User;
