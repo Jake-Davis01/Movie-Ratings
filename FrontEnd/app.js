@@ -1,7 +1,7 @@
 // get data from omdb api
-import "dotenv/config"
-const apiKey = process.env.omdb_apikey
-//const apiKey = "b70d46ec"
+//import "dotenv/config"
+//const apiKey = process.env.omdb_apikey
+const apiKey = "b70d46ec"
 
 // need to find the rotten tomato score first
 function mapForDB(data) { 
@@ -41,16 +41,12 @@ async function getMovieDetails(title) {
 
     } catch (err) {
         console.error(`Error: {err}`)
-    }
-    
+    }   
 }
 
-
-const result = await getMovieDetails("batman")
-console.log(result)
-
-
+/*
 export{
     mapForDB,
     getMovieDetails
 }
+*/

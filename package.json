@@ -1,12 +1,4 @@
 {
-<<<<<<< HEAD
-  "name": "movie-ratings",
-  "version": "1.0.0",
-  "description": "",
-  "homepage": "https://github.com/Jake-Davis01/Movie-Ratings#readme",
-  "bugs": {
-    "url": "https://github.com/Jake-Davis01/Movie-Ratings/issues"
-=======
   "name": "week-7-deep-dive",
   "version": "1.0.0",
   "description": "",
@@ -14,20 +6,11 @@
   "scripts": {
     "seed-db": "node ./BackEnd/database/setup-db.js",
     "dev": "nodemon ./BackEnd/index.js"
->>>>>>> main
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Jake-Davis01/Movie-Ratings.git"
   },
-<<<<<<< HEAD
-  "license": "ISC",
-  "author": "",
-  "type": "module",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-=======
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -45,6 +28,5 @@
   "type": "module",
   "devDependencies": {
     "nodemon": "^3.1.14"
->>>>>>> main
   }
 }
