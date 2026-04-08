@@ -56,6 +56,20 @@ async function getUser(req, res) {
     }
 }
 
+// get logged in user from token
+async function getMe(req, res) {
+    const user_id = req.user.user_id;
+    try {
+        const user = await User.findById(user_id);
+        if (!user) {
+            return res.status(404).send({ error: "User not found" });
+        }
+        res.status(200).send(user);
+    } catch (err) {
+        res.status(500).send({ error: err.message });
+    }
+}
+
 // update user
 async function updateUser(req, res) {
     const { id } = req.params;
@@ -85,4 +99,4 @@ async function deleteUser(req, res) {
     }
 }
 
-export default { register, login, getUser, updateUser, deleteUser };
+export default { register, login, getUser, updateUser, deleteUser, getMe };
