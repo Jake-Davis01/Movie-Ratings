@@ -3,14 +3,26 @@ import jwt from "jsonwebtoken";
 
 // register a new user
 async function register(req, res) {
-    const { email, password, securityQuestion, securityAnswer, username, name } = req.body;
+    const { email, password, username, name, securityQuestions } = req.body;
+
+    // extract just the first question from the array
+    const securityQuestion = securityQuestions[0].question;
+    const securityAnswer = securityQuestions[0].answer;
+
     try {
         const existingUser = await User.findByEmail(email);
         if (existingUser) {
             return res.status(409).send({ error: "Email already in use" });
         }
 
-        const newUser = await User.createUser({ email, password, securityQuestion, securityAnswer, username, name });
+        const newUser = await User.createUser({ 
+            email, 
+            password, 
+            securityQuestion, 
+            securityAnswer, 
+            username, 
+            name: name || username
+        });
         res.status(201).send({ message: "User registered successfully", user: newUser });
     } catch (err) {
         res.status(500).send({ error: err.message });

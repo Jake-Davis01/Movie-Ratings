@@ -26,14 +26,14 @@ signupForm.addEventListener('submit', async (e) => {
   };
 
   try {
-    const res = await fetch('/api/signup', {
+    const res = await fetch('http://localhost:3000/user/register', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload)
     });
 
     const data = await res.json();
-    if (data.success) {
+    if (data.user) {
       alert('Signup successful! Please log in.');
       window.location.href = 'login.html';
     } else {
