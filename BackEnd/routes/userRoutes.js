@@ -10,6 +10,7 @@ userRouter.post("/login", userController.login);
 
 // protected routes
 userRouter.get("/:id", authenticator, userController.getUser);
+userRouter.get("/me", authenticator, userController.getMe);
 userRouter.put("/:id", authenticator, userController.updateUser);
 userRouter.delete("/:id", authenticator, userController.deleteUser);
 

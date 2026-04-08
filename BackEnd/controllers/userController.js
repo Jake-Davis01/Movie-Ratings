@@ -1,16 +1,28 @@
-import User from "../models/User.js";
+import User from "../models/Users.js";
 import jwt from "jsonwebtoken";
 
 // register a new user
 async function register(req, res) {
-    const { email, password, securityQuestion, securityAnswer, username, name } = req.body;
+    const { email, password, username, name, securityQuestions } = req.body;
+
+    // extract just the first question from the array
+    const securityQuestion = securityQuestions[0].question;
+    const securityAnswer = securityQuestions[0].answer;
+
     try {
         const existingUser = await User.findByEmail(email);
         if (existingUser) {
             return res.status(409).send({ error: "Email already in use" });
         }
 
-        const newUser = await User.createUser({ email, password, securityQuestion, securityAnswer, username, name });
+        const newUser = await User.createUser({ 
+            email, 
+            password, 
+            securityQuestion, 
+            securityAnswer, 
+            username, 
+            name: name || username
+        });
         res.status(201).send({ message: "User registered successfully", user: newUser });
     } catch (err) {
         res.status(500).send({ error: err.message });
@@ -56,6 +68,20 @@ async function getUser(req, res) {
     }
 }
 
+// get logged in user from token
+async function getMe(req, res) {
+    const user_id = req.user.user_id;
+    try {
+        const user = await User.findById(user_id);
+        if (!user) {
+            return res.status(404).send({ error: "User not found" });
+        }
+        res.status(200).send(user);
+    } catch (err) {
+        res.status(500).send({ error: err.message });
+    }
+}
+
 // update user
 async function updateUser(req, res) {
     const { id } = req.params;
@@ -85,4 +111,4 @@ async function deleteUser(req, res) {
     }
 }
 
-export default { register, login, getUser, updateUser, deleteUser };
+export default { register, login, getUser, updateUser, deleteUser, getMe };

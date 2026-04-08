@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/home.css">
-    <script src="../js/home.js" defer></script>
+    <script src="../app.js" defer></script>
+    <script src="../search.js" defer></script>
     <title>MAD Movies</title>
 </head>
 <body>
@@ -31,6 +32,7 @@
         <div id="all-game-options">
             <h2>My Movie List</h2>
             
+<<<<<<< HEAD
             {% for movie in movies %}
                 <div>
                     <h3>{{ movie.movie_name }} ({{ movie.year }})</h3>
@@ -77,6 +79,22 @@
                 <span class="arrow">›</span>
             </div> -->
 
+=======
+            <table>
+                  <tr>
+                    <th>Title</th>
+                    <th>Year</th>
+                    <th>Rating</th>
+                    <th>Action</th>
+                </tr>
+                <tr>
+                    <th>Interstellar</th>
+                    <th>2014</th>
+                    <th>5</th>
+                    <th><button type="button">Update Rating</button><button type="button">Delete Record</button></th>
+                </tr>
+            </table>
+>>>>>>> main
         </div>
 
         <div id="leaderboard">

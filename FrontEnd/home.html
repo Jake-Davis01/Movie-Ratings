@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Styles/home.css">
+     <script src="./Scripts/getUserReviews.js" defer></script>
+    <title>MAD Movies</title>
+</head>
+
+<body>
+
+    <body>
+        <div id="heading-text">
+            <span id="welcome-text">MAD Movies</span>
+            <div id="user-search">
+                <form action="/search" method="GET">
+                    <input type="text" name="query" placeholder="Search...">
+                    <button type="submit">Search</button>
+                </form>
+            </div>
+            <div id="user-menu">
+                <button id="user-btn">👤</button>
+                <div id="user-dropdown">
+                    <a href="../pages/home-page.html"> Home</a>
+                    <a href="../pages/index.html"> Logout</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="page-sections">
+
+            <div id="add-section" class="game-option">
+                <form>
+                    <label for="mTitle">Movie Title</label><br>
+                    <input type="text" id="mTitle" name="mTitle" value=""><br><br>
+                    <label for="mYear">Year</label><br>
+                    <input type="text" id="mYear" name="mYear" value=""><br><br>
+                    <label for="director">Director</label><br>
+                    <input type="text" id="director" name="director" value=""><br><br>
+                    <label for="mYear">Rating</label><br>
+                    <input type="number" id="rating" name="rating" value=""><br><br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+        </div>
+
+        </div>
+
+
+        <div id="user-reviews">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="table-title">Title</th>
+                        <th class="table-year">Year</th>
+                        <th class="table-year">Your Rating</th>
+                        <th class="table-year">IMDB Rating</th>
+                        <th class="table-year">Rotten Tomatoes Rating</th>
+                    </tr>
+                </thead>
+                <tbody id="reviews">
+
+                </tbody>
+            </table>
+        </div>
+
+    </body>
+</body>
+
+</html>
