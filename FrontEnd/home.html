@@ -33,10 +33,12 @@
 
             <div id="add-section" class="game-option">
                 <form>
-                    <label for="mTitle">Movie Title:</label><br>
-                    <input type="text" id="mTitle" name="mTitle" value=""><br>
+                    <label for="mTitle">Movie Title</label><br>
+                    <input type="text" id="mTitle" name="mTitle" value=""><br><br>
                     <label for="mYear">Year</label><br>
                     <input type="text" id="mYear" name="mYear" value=""><br><br>
+                    <label for="director">Director</label><br>
+                    <input type="text" id="director" name="director" value=""><br><br>
                     <label for="mYear">Rating</label><br>
                     <input type="number" id="rating" name="rating" value=""><br><br>
                     <input type="submit" value="Submit">
@@ -51,11 +53,11 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Title</th>
-                        <th>Year</th>
-                        <th>Your Rating</th>
-                        <th>IMDB Rating</th>
-                        <th>Rotten Tomatoes Rating</th>
+                        <th class="table-title">Title</th>
+                        <th class="table-year">Year</th>
+                        <th class="table-year">Your Rating</th>
+                        <th class="table-year">IMDB Rating</th>
+                        <th class="table-year">Rotten Tomatoes Rating</th>
                     </tr>
                 </thead>
                 <tbody id="reviews">
