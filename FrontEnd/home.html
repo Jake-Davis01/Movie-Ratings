@@ -1,88 +1,95 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./Styles/home.css" />
-    <script src="./Scripts/getUserReviews.js" defer></script>
-    <script src="./Scripts/app.js" defer></script>
-    <script src="./Scripts/search.js" defer></script>
-    <title>MAD Movies</title>
-  </head>
 
-  <body>
-    <body>
-      <div id="heading-text">
-        <span id="welcome-text">WatchWatch</span>
-        <div id="user-menu">
-          <button id="user-btn">👤</button>
-          <div id="user-dropdown">
-            <a href="../pages/home-page.html"> Home</a>
-            <a href="../pages/index.html"> Logout</a>
-          </div>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="./Styles/home.css" />
+
+  <script src="./Scripts/getUserReviews.js" defer></script>
+  <script src="./Scripts/app.js" defer></script>
+  <script src="./Scripts/search.js" defer></script>
+
+  <title>HEARHEAR</title>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-left">
+      <img src="./Images/HERE HERE Music Tracker.png" alt="logo">
+      <span>HEAR HEAR MUSIC TRACKER </span>
+    </div>
+
+    <div class="nav-right">
+      <form action="./welcome.html">
+        <button id="user-btn">👤</button>
+
+      </form>
+    </div>
+  </nav>
+
+  <!-- MAIN SECTION -->
+  <div id="page-sections">
+
+    <!-- FORM -->
+    <div id="add-section" class="game-option">
+      <form id="movie-form">
+
+        <label>Song Title</label>
+        <input type="text" id="mTitle" />
+
+        <label>Year</label>
+        <input type="number" id="mYear" />
+
+        <label>Director</label>
+        <input type="text" id="director" />
+
+        <label>Rating</label>
+        <input type="number" id="rating" />
+
+        <button type="submit">Submit</button>
+
+      </form>
+    </div>
+
+    <!-- SEARCH RESULTS -->
+    <div id="search-results">
+      <div id="search-prompt">
+        Search for a song, add it to your collection
       </div>
+    </div>
 
-      <div id="page-sections">
-        <div id="add-section" class="game-option">
-          <form id="movie-form">
-            <label for="mTitle">Movie Title</label><br />
-            <input type="text" id="mTitle" name="mTitle" value="" /><br /><br />
+  </div>
 
-            <label for="mYear">Year</label><br />
-            <input type="number" id="mYear" name="mYear" value="" /><br /><br />
+  <!-- USER TABLE -->
+  <div id="table-container">
 
-            <label for="director">Director</label><br />
-            <input
-              type="text"
-              id="director"
-              name="director"
-              value=""
-            /><br /><br />
+    <div id="user-search">
+      <input id="list-filter" type="text" placeholder="Search your songs..." />
+    </div>
 
-            <label for="mYear">Rating</label><br />
-            <input
-              type="number"
-              id="rating"
-              name="rating"
-              value=""
-            /><br /><br />
+    <div id="user-reviews">
+      <table>
+        <thead>
+          <tr>
+            <th>Poster</th>
+            <th>Name</th>
+            <th>Album</th>
+            <th>Year</th>
+            <th>Your Rating</th>
+            <th>External Rating1</th>
+            <th>External Rating2</th>
+          </tr>
+        </thead>
+        <tbody id="reviews"></tbody>
+      </table>
+    </div>
 
-            <button type="submit">Submit</button>
-          </form>
-        </div>
-        <!--movie search resultsa-->
-        <div id="search-results">
-          <div id="search-prompt">
-            📽️ Search for a movie, add it to your collection
-          </div>
-        </div>
-      </div>
-      <div id="table-container">
-        <div id="user-search">
-          <input
-            id="list-filter"
-            type="text"
-            name="query"
-            placeholder="Search your movies..."
-          />
-        </div>
+  </div>
 
-        <div id="user-reviews">
-          <table>
-            <thead>
-              <tr>
-                <th class="table-title">Title</th>
-                <th class="table-year">Year</th>
-                <th class="table-year">Your Rating</th>
-                <th class="table-year">IMDB</th>
-                <th class="table-year">Rotten Tomatoes</th>
-              </tr>
-            </thead>
-            <tbody id="reviews"></tbody>
-          </table>
-        </div>
-      </div>
-    </body>
-  </body>
+</body>
+
 </html>

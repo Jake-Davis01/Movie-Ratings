@@ -15,11 +15,12 @@ CREATE TABLE users(
 CREATE TABLE reviews(
   review_table_id INT GENERATED ALWAYS AS IDENTITY,
   user_id INT REFERENCES users(user_id),
-  movie_name TEXT,
+  name TEXT,
+  album TEXT,
   year INT,
   rating INT,
-  imdb NUMERIC(3,1),
-  rotten INT,
+  score1 NUMERIC(3,1),
+  score2 NUMERIC(3,1),
   image TEXT,
   PRIMARY KEY (review_table_id)
 );

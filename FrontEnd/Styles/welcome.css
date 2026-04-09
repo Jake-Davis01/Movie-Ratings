@@ -8,11 +8,32 @@
 /* Background */
 body{
   height:100svh;
-  background:url('../Images/bg5.png') no-repeat center/cover;
+  background:url('../Images/17.avif') no-repeat center/cover;
 
   display:flex;
   justify-content:center;
   align-items:center;
+}
+.hero::before{
+  content:"";
+  position:absolute;.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:linear-gradient(
+    to right,
+    rgba(120, 0, 0, 0.4),
+    rgba(0, 80, 120, 0.3)
+  );
+}
+  inset:0;
+
+  background:linear-gradient(
+    to right,
+    rgba(0,0,0,0.35),
+    rgba(0,0,0,0.15)
+  );
 }
 
 /* Overlay for cinematic feel */
@@ -146,7 +167,7 @@ body{
 }
 
 .Logo img{
-  width: 200px;
+  width: 220px;
   display: block;
   margin: 0 auto;
 }
