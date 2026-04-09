@@ -41,14 +41,9 @@ async function getMovieDetails(title) {
         return movieData
 
     } catch (err) {
-<<<<<<< HEAD:FrontEnd/app.js
         console.error(`Error: ${err}`)
     }
     
-=======
-        console.error(`Error: {err}`)
-    }   
->>>>>>> main:FrontEnd/Scripts/app.js
 }
 
 /*
