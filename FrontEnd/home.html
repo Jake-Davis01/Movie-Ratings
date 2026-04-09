@@ -7,6 +7,7 @@
     <script src="./Scripts/getUserReviews.js" defer></script>
     <script src="./Scripts/app.js" defer></script>
     <script src="./Scripts/search.js" defer></script>
+    <script type="module" src="./Scripts/recommendations.js"></script>
     <title>MAD Movies</title>
   </head>
 
@@ -82,6 +83,14 @@
             <tbody id="reviews"></tbody>
           </table>
         </div>
+      </div>
+
+      <div id="recommendations-section">
+          <h2>🎬 Recommended For You</h2>
+          <p>Based on your movie history</p>
+          <div id="recommendations-container">
+              <p>Loading your recommendations...</p>
+          </div>
       </div>
     </body>
   </body>

@@ -238,3 +238,40 @@ tr:nth-child(odd) {
 tr:nth-child(even) {
   background-color: var(--dark-colour);
 }
+
+#recommendations-section {
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+#recommendations-section h2 {
+    margin-bottom: 0.5rem;
+}
+
+.recommendations-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.recommendation-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+}
+
+.recommendation-card h3 {
+    margin-bottom: 0.5rem;
+}
+
+.recommendation-card p {
+    margin: 0.25rem 0;
+    font-size: 0.9rem;
+}
+
+.recommendation-card .reason {
+    margin-top: 1rem;
+    font-style: italic;
+    opacity: 0.8;
+}
