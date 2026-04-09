@@ -12,7 +12,7 @@ loginForm.addEventListener('submit', async (e) => {
     userEmail = email;
 
     try {
-        const res = await fetch('http://localhost:3000/user/login', {
+        const res = await fetch('/user/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })
@@ -49,7 +49,7 @@ secForm.addEventListener('submit', async (e) => {
     const answer = document.getElementById('sec-answer').value.trim();
 
     try {
-        const res = await fetch('http://localhost:3000/user/verify-security', {
+        const res = await fetch('/user/verify-security', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

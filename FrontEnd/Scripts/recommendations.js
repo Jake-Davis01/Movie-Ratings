@@ -10,7 +10,7 @@ async function loadRecommendations() {
     container.innerHTML = "<p>Loading your recommendations...</p>";
 
     try {
-        const reviewsRes = await fetch(`http://localhost:3000/reviews/${userId}`, {
+        const reviewsRes = await fetch(`/reviews/${userId}`, {
             headers: {
                 "Authorization": `Bearer ${token}`
             }
@@ -24,7 +24,7 @@ async function loadRecommendations() {
             return;
         }
 
-        const recRes = await fetch("http://localhost:3000/recommendations", {
+        const recRes = await fetch("/recommendations", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
