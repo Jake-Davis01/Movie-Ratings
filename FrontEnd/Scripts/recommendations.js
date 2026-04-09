@@ -1,27 +1,29 @@
 const token = localStorage.getItem("token");
 const user = JSON.parse(localStorage.getItem("user"));
-console.log("user from localStorage: ", user)
+console.log("user from localStorage: ", user);
+
+const userId = user?.id || user?.user_id;
+console.log("userId: ", userId);
 
 async function loadRecommendations() {
     const container = document.getElementById("recommendations-container");
     container.innerHTML = "<p>Loading your recommendations...</p>";
 
     try {
-        // get user's movie reviews
-        const reviewsRes = await fetch(`http://localhost:3000/reviews/${user.id}`, {
+        const reviewsRes = await fetch(`http://localhost:3000/reviews/${userId}`, {
             headers: {
                 "Authorization": `Bearer ${token}`
             }
         });
 
         const reviews = await reviewsRes.json();
+        console.log("reviews: ", reviews);
 
-        if (!reviews || reviews.length === 0) {
-            container.innerHTML = "<p>Add some movie reviews first to get recommendations!</p>";
+        if (!reviews || reviews.length === 0 || reviews.error) {
+            container.innerHTML = "<p>Add some music reviews first to get recommendations!</p>";
             return;
         }
 
-        // send to Claude
         const recRes = await fetch("http://localhost:3000/recommendations", {
             method: "POST",
             headers: {
@@ -32,6 +34,7 @@ async function loadRecommendations() {
         });
 
         const data = await recRes.json();
+        console.log("recommendations: ", data);
 
         if (data.recommendations) {
             displayRecommendations(data.recommendations);
@@ -51,7 +54,10 @@ function displayRecommendations(recommendations) {
         <div class="recommendations-grid">
             ${recommendations.map(rec => `
                 <div class="recommendation-card">
-                    <h3>${rec.movie_name} (${rec.year})</h3>
+                    <h3>${rec.name}</h3>
+                    <p><strong>Artist:</strong> ${rec.artist}</p>
+                    <p><strong>Album:</strong> ${rec.album}</p>
+                    <p><strong>Year:</strong> ${rec.year}</p>
                     <p><strong>Genre:</strong> ${rec.genre}</p>
                     <p class="reason">💡 ${rec.reason}</p>
                 </div>

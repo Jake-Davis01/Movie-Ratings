@@ -1,16 +1,5 @@
 <!doctype html>
 <html lang="en">
-<<<<<<< HEAD
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./Styles/home.css" />
-    <script src="./Scripts/getUserReviews.js" defer></script>
-    <script src="./Scripts/app.js" defer></script>
-    <script src="./Scripts/search.js" defer></script>
-    <title>MAD Movies</title>
-  </head>
-=======
 
 <head>
   <meta charset="UTF-8" />
@@ -21,10 +10,10 @@
   <script src="./Scripts/getUserReviews.js" defer></script>
   <script src="./Scripts/app.js" defer></script>
   <script src="./Scripts/search.js" defer></script>
+  <script type="module" src="./Scripts/recommendations.js"></script>
 
   <title>HEARHEAR</title>
 </head>
->>>>>>> main
 
 <body>
 
@@ -100,6 +89,15 @@
       </table>
     </div>
 
+  </div>
+
+  <!-- AI RECOMMENDATIONS SECTION -->
+  <div id="recommendations-section">
+    <h2>🎵 Recommended For You</h2>
+    <p>Based on your music history</p>
+    <div id="recommendations-container">
+        <p>Loading your recommendations...</p>
+    </div>
   </div>
 
 </body>
