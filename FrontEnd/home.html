@@ -7,67 +7,69 @@
     <script src="./Scripts/getUserReviews.js" defer></script>
     <script src="./Scripts/app.js" defer></script>
     <script src="./Scripts/search.js" defer></script>
-    <script type="module" src="./Scripts/recommendations.js"></script>
     <title>MAD Movies</title>
   </head>
 
-  <body>
-    <body>
-      <div id="heading-text">
-        <span id="welcome-text">WatchWatch</span>
-        <div id="user-menu">
-          <button id="user-btn">👤</button>
-          <div id="user-dropdown">
-            <a href="../pages/home-page.html"> Home</a>
-            <a href="../pages/index.html"> Logout</a>
-          </div>
-        </div>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-left">
+      <img src="./Images/HERE HERE Music Tracker.png" alt="logo">
+      <span>HEAR HEAR MUSIC TRACKER </span>
+    </div>
+
+    <div class="nav-right">
+      <form action="./welcome.html">
+        <button id="user-btn">👤</button>
+        
+      </form>
+    </div>
+  </nav>
+
+  <!-- MAIN SECTION -->
+  <div id="page-sections">
+
+    <!-- FORM -->
+    <div id="add-section" class="game-option">
+      <form id="movie-form">
+
+        <label>Movie Title</label>
+        <input type="text" id="mTitle" />
+
+        <label>Year</label>
+        <input type="number" id="mYear" />
+
+        <label>Director</label>
+        <input type="text" id="director" />
+
+        <label>Rating</label>
+        <input type="number" id="rating" />
+
+        <button type="submit">Submit</button>
+
+      </form>
+    </div>
+
+    <!-- SEARCH RESULTS -->
+    <div id="search-results">
+      <div id="search-prompt">
+        📽️ Search for a movie, add it to your collection
       </div>
+    </div>
 
-      <div id="page-sections">
-        <div id="add-section" class="game-option">
-          <form id="movie-form">
-            <label for="mTitle">Movie Title</label><br />
-            <input type="text" id="mTitle" name="mTitle" value="" /><br /><br />
+  </div>
 
-            <label for="mYear">Year</label><br />
-            <input type="number" id="mYear" name="mYear" value="" /><br /><br />
+  <!-- USER TABLE -->
+  <div id="table-container">
 
-            <label for="director">Director</label><br />
-            <input
-              type="text"
-              id="director"
-              name="director"
-              value=""
-            /><br /><br />
-
-            <label for="mYear">Rating</label><br />
-            <input
-              type="number"
-              id="rating"
-              name="rating"
-              value=""
-            /><br /><br />
-
-            <button type="submit">Submit</button>
-          </form>
-        </div>
-        <!--movie search resultsa-->
-        <div id="search-results">
-          <div id="search-prompt">
-            📽️ Search for a movie, add it to your collection
-          </div>
-        </div>
-      </div>
-      <div id="table-container">
-        <div id="user-search">
-          <input
-            id="list-filter"
-            type="text"
-            name="query"
-            placeholder="Search your movies..."
-          />
-        </div>
+    <div id="user-search">
+      <input
+        id="list-filter"
+        type="text"
+        placeholder="Search your movies..."
+      />
+    </div>
 
         <div id="user-reviews">
           <table>
@@ -83,14 +85,6 @@
             <tbody id="reviews"></tbody>
           </table>
         </div>
-      </div>
-
-      <div id="recommendations-section">
-          <h2>🎬 Recommended For You</h2>
-          <p>Based on your movie history</p>
-          <div id="recommendations-container">
-              <p>Loading your recommendations...</p>
-          </div>
       </div>
     </body>
   </body>
