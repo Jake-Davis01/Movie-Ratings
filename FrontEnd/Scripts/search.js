@@ -136,7 +136,7 @@ async function renderCards(songs) {
     card.dataset.artistName = song.artist;
 
     const img = document.createElement("img");
-    img.src = song.image[2];
+    img.src = song.image[2]["#text"];
     img.alt = song.name;
     img.onerror = () => (img.style.display = "none");
 
