@@ -72,7 +72,16 @@ async function verifySecurityAnswer(req, res) {
             { expiresIn: "24h" }
         );
 
-        res.status(200).send({ success: true, token, user });
+        res.status(200).send({ 
+            success: true, 
+            token, 
+            user: {
+                id: user.id,
+                email: user.email,
+                username: user.username,
+                name: user.name
+            } 
+        });
     } catch (err) {
         res.status(500).send({ error: err.message });
     }

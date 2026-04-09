@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import userRouter from "./routes/userRoutes.js";
 import reviewsRouter from "./routes/reviewsRouter.js";
+import recommendationsRouter from "./routes/recommendationsRouter.js";
 
 const app = express();
 
@@ -15,5 +16,6 @@ app.get("/", (req, res) => {
 
 app.use("/user", userRouter);
 app.use("/reviews", reviewsRouter);
+app.use("/recommendations", recommendationsRouter)
 
 export default app;
