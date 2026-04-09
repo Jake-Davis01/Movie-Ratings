@@ -1,94 +1,188 @@
-@import "./global.css";
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Cinzel:wght@600&display=swap");
 
+:root {
+  --bg: #24363b;
+  --card: #073642;
+  --card-light: #0a4a55;
+  --text: #c1d9dc;
+  --text-muted: #93a1a1;
+  --accent: #2aa198;
+  --highlight: #b58900;
+  --outline: #00212b;
+}
+
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ---------- BODY ---------- */
+/* BODY */
 body {
-  background-color: var(--dark-bg-colour);
   font-family: "Inter", sans-serif;
-  color: var(--dark-text-colour);
+  color: var(--text);
+
+  background: 
+    linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url("../Images/16.avif") no-repeat center/cover;
+
+  min-height: 100vh;
 }
 
-/* ---------- HEADER ---------- */
-#heading-text {
-  background-color: var(--dark-colour);
-  border-bottom: 1px solid var(--dark-outline);
-  padding: 18px 28px;
-  color: var(--dark-text-secondary);
-  font-family: "Cinzel", serif;
-  font-size: 22px;
-  font-weight: 600;
+/* NAVBAR */
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
+  padding: 14px 30px;
+
+  background: linear-gradient(to right, #073642, #0a4a55);
+  border-bottom: 1px solid var(--outline);
+
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+
+.nav-left {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 12px;
 }
 
-/* ---------- LAYOUT ---------- */
+.nav-left img {
+  width: 42px;
+}
+
+.nav-left span {
+  font-family: "Cinzel", serif;
+  font-size: 20px;
+  letter-spacing: 1px;
+  color: #d8f3f5;
+}
+
+#user-btn{
+  width:44px;
+  height:44px;
+
+  border-radius:50%;
+  border:none;
+
+  background:linear-gradient(135deg, #9b59b6, #6c5ce7);
+  color:white; /* affects some emoji rendering */
+
+  font-size:20px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  cursor:pointer;
+  transition:0.25s;
+
+  box-shadow:0 4px 12px rgba(197, 183, 183, 0.3);
+}
+
+#user-btn:hover{
+  transform:scale(1.1);
+  box-shadow:0 6px 18px rgba(152, 143, 143, 0.4);
+}
+
+#user-btn:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+/* LAYOUT */
 #page-sections {
   display: flex;
   width: 90%;
-  margin: 0 auto;
-  padding: 40px 0;
+  margin: 40px auto;
   gap: 30px;
-  align-items: flex-start;
+  animation: fadeIn 0.6s ease;
 }
 
-#page-sections h2 {
-  text-align: left;
-  font-family: "Cinzel", serif;
-  font-size: 18px;
+/* FORM CARD */
+.game-option {
+  width: 260px;
+  padding: 24px;
+  border-radius: 16px;
+
+  background: linear-gradient(145deg, #073642, #0a4a55);
+
+  border: 1px solid rgba(255,255,255,0.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.game-option form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--outline);
+  background: #24363b;
+  color: white;
+  outline: none;
+}
+
+input:focus {
+  border-color: var(--accent);
+}
+
+/* BUTTON */
+button[type="submit"] {
+  background: var(--highlight);
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
   font-weight: 600;
-  color: var(--dark-text-secondary);
-  margin-bottom: 12px;
-  letter-spacing: 1px;
 }
 
-/* ---------- SEARCH AREA ---------- */
-#search-prompt {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 160px;
-  color: var(--dark-text-secondary);
-  font-size: 22px;
-  border-radius: 12px;
-  width: 100%;
-  background: rgba(255,255,255,0.03);
+button:hover {
+  transform: translateY(-2px);
 }
 
-/* Scroll container */
+/* SEARCH RESULTS */
 #search-results {
-  width: 100%;
-  border: 1px dashed var(--dark-outline);
-  border-radius: 12px;
+  flex: 1;
   display: flex;
-  overflow-x: auto;
   gap: 12px;
   padding: 12px;
-  scrollbar-width: thin;
+
+  border: 1px dashed var(--outline);
+  border-radius: 12px;
+
+  overflow-x: auto;
 }
 
-/* Movie cards */
+#search-prompt {
+  margin: auto;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+/* MOVIE CARD */
 .search-card {
-  background-color: var(--dark-colour);
-  flex-shrink: 0;
   width: 120px;
-  cursor: pointer;
-  text-align: center;
-  border-radius: 10px;
+  flex-shrink: 0;
+
   padding: 8px;
-  transition: all 0.2s ease;
+  border-radius: 10px;
+  text-align: center;
+
+  background: var(--card);
+  cursor: pointer;
+
+  transition: 0.3s;
 }
 
 .search-card:hover {
-  transform: translateY(-4px) scale(1.03);
-  background: rgba(255,255,255,0.05);
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
 }
 
 .search-card img {
@@ -96,260 +190,81 @@ body {
   border-radius: 8px;
 }
 
-.search-card span {
-  font-size: 12px;
-  margin-top: 6px;
-  display: block;
-}
-
-/* ---------- FORM / CARD ---------- */
-.game-option {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-
-  border-radius: 16px;
-  padding: 24px;
-  margin-bottom: 20px;
-
-  background-color: var(--dark-colour);
-  border: 1px solid var(--dark-outline);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-}
-
-/* Inputs */
-input {
-  padding: 10px;
-  border-radius: 8px;
-  border: 1px solid var(--dark-outline);
-  background: var(--dark-bg-colour);
-  color: var(--dark-text-colour);
-  outline: none;
-  transition: 0.2s;
-}
-
-input:focus {
-  border-color: var(--dark-highlight);
-}
-
-/* ---------- BUTTONS ---------- */
-button[type="submit"],
-.load-more-button {
-  background: var(--dark-highlight);
-  color: var(--base3);
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.2s;
-}
-
-button:hover {
-  transform: translateY(-2px);
-  opacity: 0.9;
-}
-
-/* Profile button */
-#user-btn {
-  background: none;
-  border: 1px solid var(--dark-outline);
-  border-radius: 50%;
-  color: var(--dark-text-colour);
-  font-size: 20px;
-  width: 44px;
-  height: 44px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-#user-btn:hover {
-  background: rgba(255,255,255,0.05);
-}
-
-/* ---------- SEARCH BAR ---------- */
+/* SEARCH BAR */
 #user-search {
-  padding: 20px 0;
   display: flex;
   justify-content: center;
+  margin: 30px 0;
 }
 
 #list-filter {
+  width: 360px;
   padding: 10px 16px;
   border-radius: 999px;
-  border: 1px solid var(--dark-outline);
-  background: var(--dark-colour);
-  color: var(--dark-text-colour);
-  width: 320px;
+  border: 1px solid var(--outline);
+  background: var(--card);
 }
 
-/* ---------- USER DROPDOWN ---------- */
-#user-menu {
-  position: relative;
+#list-filter:focus {
+  width: 400px;
+  border-color: var(--accent);
+  box-shadow: 0 0 10px rgba(42,161,152,0.3);
 }
 
-#user-dropdown {
-  display: none;
-  position: absolute;
-  right: 0;
-  top: 56px;
-  background-color: var(--dark-colour);
-  border: 1px solid var(--dark-outline);
-  border-radius: 10px;
-  overflow: hidden;
-  min-width: 160px;
-  z-index: 10;
-}
-
-#user-dropdown a {
-  display: block;
-  padding: 12px 16px;
-  font-size: 14px;
-  text-decoration: none;
-  color: var(--dark-text-colour);
-}
-
-#user-dropdown a:hover {
-  background-color: rgba(255,255,255,0.05);
-}
-
-#user-menu.open #user-dropdown {
-  display: block;
-}
-
-/* ---------- TABLE CONTAINER ---------- */
+/* TABLE */
 #table-container {
   width: 95%;
-  margin: 30px auto;
-  overflow-x: auto;
+  margin: auto;
 }
 
-/* ---------- TABLE BASE ---------- */
 table {
   width: 100%;
   border-collapse: collapse;
-  font-family: "Inter", sans-serif;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
-/* ---------- HEADER ---------- */
 th {
-  background-color: var(--dark-colour);
-  color: var(--dark-text-secondary);
-  font-size: 13px;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 12px 16px;
+  background: var(--card);
+  padding: 12px;
   text-align: left;
-  border-bottom: 2px solid var(--dark-outline);
+  font-size: 13px;
+  color: var(--text-muted);
 }
 
-/* ---------- ROWS ---------- */
-tr {
-  background: var(--dark-colour);
-  transition: transform 0.2s ease, background 0.2s ease;
-}
-
-tr:nth-child(even) {
-  background: rgba(255,255,255,0.03); /* subtle striping */
+td {
+  padding: 12px;
+  border-bottom: 1px solid var(--outline);
 }
 
 tr:hover {
-  background: rgba(255,255,255,0.06);
+  background: rgba(42,161,152,0.08);
   transform: translateY(-2px);
 }
 
-/* ---------- CELLS ---------- */
-td {
-  padding: 12px 16px;
-  font-size: 14px;
-  color: var(--dark-text-colour);
-  vertical-align: middle;
-  border-bottom: 1px solid var(--dark-outline);
+/* ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Remove last row border */
-tr:last-child td {
-  border-bottom: none;
-}
-
-/* ---------- POSTER IMAGES ---------- */
-table img {
-  width: 50px;
-  height: 75px;
-  object-fit: cover;
-  border-radius: 6px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
-}
-
-/* ---------- TITLE & DIRECTOR ---------- */
-.table-title {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  font-weight: 600;
-  color: var(--dark-text-secondary);
-}
-
-.table-title span {
-  font-size: 12px;
-  color: #94a3b8; /* secondary text for director */
-}
-
-/* ---------- OTHER COLUMNS ---------- */
-.table-year,
-.table-rating,
-.table-imdb,
-.table-rotten {
-  text-align: center;
-  font-weight: 500;
-}
-
-/* ---------- COLUMN WIDTHS ---------- */
-.table-title {
-  width: 40%;
-}
-.table-year {
-  width: 15%;
-}
-.table-rating,
-.table-imdb,
-.table-rotten {
-  width: 10%;
-}
-
-/* ---------- MOBILE RESPONSIVE ---------- */
+/* MOBILE */
 @media (max-width: 768px) {
-  table,
-  thead,
-  tbody,
-  th,
-  td,
-  tr {
-    display: block;
+  #page-sections {
+    flex-direction: column;
   }
 
-  th {
-    display: none;
+  .game-option {
+    width: 100%;
   }
 
-  td {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-  }
-
-  td::before {
-    content: attr(data-label);
-    font-weight: 600;
-    color: #94a3b8;
-  }
-
-  .table-title span {
-    font-size: 11px;
-  }
-
-  table img {
-    width: 40px;
-    height: 60px;
+  #list-filter {
+    width: 100%;
   }
 }
