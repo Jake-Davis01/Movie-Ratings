@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "seed-db": "node ./BackEnd/database/setup-db.js",
-    "dev": "nodemon ./BackEnd/index.js"
+    "dev": "nodemon ./BackEnd/index.js",
+    "start" : "node ./BackEnd/index.js"
   },
   "repository": {
     "type": "git",
