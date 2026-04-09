@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,7 +26,7 @@
     <div class="nav-right">
       <form action="./welcome.html">
         <button id="user-btn">👤</button>
-        
+
       </form>
     </div>
   </nav>
@@ -37,7 +38,7 @@
     <div id="add-section" class="game-option">
       <form id="movie-form">
 
-        <label>Movie Title</label>
+        <label>Song Title</label>
         <input type="text" id="mTitle" />
 
         <label>Year</label>
@@ -57,7 +58,7 @@
     <!-- SEARCH RESULTS -->
     <div id="search-results">
       <div id="search-prompt">
-        📽️ Search for a movie, add it to your collection
+        Search for a song, add it to your collection
       </div>
     </div>
 
@@ -67,22 +68,20 @@
   <div id="table-container">
 
     <div id="user-search">
-      <input
-        id="list-filter"
-        type="text"
-        placeholder="Search your movies..."
-      />
+      <input id="list-filter" type="text" placeholder="Search your songs..." />
     </div>
 
     <div id="user-reviews">
       <table>
         <thead>
           <tr>
-            <th>Title</th>
+            <th>Poster</th>
+            <th>Name</th>
+            <th>Album</th>
             <th>Year</th>
             <th>Your Rating</th>
-            <th>IMDB</th>
-            <th>Rotten Tomatoes</th>
+            <th>External Rating1</th>
+            <th>External Rating2</th>
           </tr>
         </thead>
         <tbody id="reviews"></tbody>
@@ -92,4 +91,5 @@
   </div>
 
 </body>
+
 </html>
