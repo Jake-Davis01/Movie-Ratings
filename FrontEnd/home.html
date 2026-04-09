@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+<<<<<<< HEAD
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,6 +10,21 @@
     <script src="./Scripts/search.js" defer></script>
     <title>MAD Movies</title>
   </head>
+=======
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="./Styles/home.css" />
+
+  <script src="./Scripts/getUserReviews.js" defer></script>
+  <script src="./Scripts/app.js" defer></script>
+  <script src="./Scripts/search.js" defer></script>
+
+  <title>HEARHEAR</title>
+</head>
+>>>>>>> main
 
 <body>
 
@@ -22,7 +38,7 @@
     <div class="nav-right">
       <form action="./welcome.html">
         <button id="user-btn">👤</button>
-        
+
       </form>
     </div>
   </nav>
@@ -34,7 +50,7 @@
     <div id="add-section" class="game-option">
       <form id="movie-form">
 
-        <label>Movie Title</label>
+        <label>Song Title</label>
         <input type="text" id="mTitle" />
 
         <label>Year</label>
@@ -54,7 +70,7 @@
     <!-- SEARCH RESULTS -->
     <div id="search-results">
       <div id="search-prompt">
-        📽️ Search for a movie, add it to your collection
+        Search for a song, add it to your collection
       </div>
     </div>
 
@@ -64,28 +80,28 @@
   <div id="table-container">
 
     <div id="user-search">
-      <input
-        id="list-filter"
-        type="text"
-        placeholder="Search your movies..."
-      />
+      <input id="list-filter" type="text" placeholder="Search your songs..." />
     </div>
 
-        <div id="user-reviews">
-          <table>
-            <thead>
-              <tr>
-                <th class="table-title">Title</th>
-                <th class="table-year">Year</th>
-                <th class="table-year">Your Rating</th>
-                <th class="table-year">IMDB</th>
-                <th class="table-year">Rotten Tomatoes</th>
-              </tr>
-            </thead>
-            <tbody id="reviews"></tbody>
-          </table>
-        </div>
-      </div>
-    </body>
-  </body>
+    <div id="user-reviews">
+      <table>
+        <thead>
+          <tr>
+            <th>Poster</th>
+            <th>Name</th>
+            <th>Album</th>
+            <th>Year</th>
+            <th>Your Rating</th>
+            <th>External Rating1</th>
+            <th>External Rating2</th>
+          </tr>
+        </thead>
+        <tbody id="reviews"></tbody>
+      </table>
+    </div>
+
+  </div>
+
+</body>
+
 </html>
