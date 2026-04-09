@@ -1,4 +1,4 @@
-const API_URL = "https://song-ratings.onrender.com";
+const API_URL = "";
 const TEST_USER = 999;
 
 async function getUserReviews() {
