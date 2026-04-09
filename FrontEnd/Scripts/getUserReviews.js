@@ -1,4 +1,4 @@
-const API_URL = "";
+const API_URL = "/reviews";
 const TEST_USER = 999;
 
 async function getUserReviews() {
