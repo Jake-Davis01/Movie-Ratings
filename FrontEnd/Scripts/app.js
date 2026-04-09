@@ -42,8 +42,12 @@ async function getMovieDetails(title) {
 
     } catch (err) {
         console.error(`Error: ${err}`)
+<<<<<<< HEAD
     }
     
+=======
+    }   
+>>>>>>> 2209dd62abe010547a1b7c18e84d7fcf1c459e56
 }
 
 /*
