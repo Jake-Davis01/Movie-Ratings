@@ -29,6 +29,8 @@ searchForm.addEventListener("submit", (event) => {
 })
 */
 
+/*
+
 // separate the movie element creation for load more feature
 async function renderCards(movieArray) {
   // remove exisitng load more
@@ -115,4 +117,74 @@ searchDiv.addEventListener("click", async (event) => {
   const movieResults = await selectMovie(imdbID);
   console.log(movieResults);
   return movieResults;
+});
+*/
+
+// song stuff
+
+async function renderCards(songs) {
+  // remove exisitng load more
+  const existingLoadMore = document.querySelector(".load-more-button");
+  if (existingLoadMore) {
+    existingLoadMore.remove();
+  }
+
+  songs.trackmatches.track.forEach((song) => {
+    const card = document.createElement("div");
+    card.classList.add("search-card");
+    card.dataset.trackName = song.name;
+    card.dataset.artistName = song.artist;
+
+    const img = document.createElement("img");
+    img.src = song.image[2];
+    img.alt = song.name;
+    img.onerror = () => (img.style.display = "none");
+
+    const title = document.createElement("h3");
+    title.textContent = song.name;
+
+    const artist = document.createElement("p");
+    artist.textContent = song.artist;
+
+    card.appendChild(img);
+    card.appendChild(title);
+    card.appendChild(artist);
+
+    searchDiv.appendChild(card);
+  });
+
+  // get the niche ones
+  const loadMore = document.createElement("button");
+  loadMore.textContent = "More...";
+  loadMore.classList.add("load-more-button");
+
+  loadMore.addEventListener("click", async () => {
+    currentPage += 1;
+    const moreSongs = await searchSong(currentSearchTerm, currentPage);
+    renderCards(moreSongs);
+  });
+
+  searchDiv.appendChild(loadMore);
+}
+
+const addForm = document.querySelector("#add-section form");
+addForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+
+  searchDiv.innerHTML = "";
+  currentPage = 1;
+  currentSearchTerm = document.querySelector("#mTitle").value;
+  currentSearchYear = document.querySelector("#mYear").value;
+
+  const title = document.querySelector("#mTitle").value;
+  const year = document.querySelector("#mYear").value;
+  const rating = document.querySelector("#rating").value;
+
+  console.log(title, year, rating);
+
+  const songSearchList = await searchSong(title, currentPage);
+  console.log(songSearchList);
+
+  renderCards(songSearchList);
+  event.target.reset();
 });

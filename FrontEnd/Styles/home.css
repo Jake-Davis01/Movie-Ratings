@@ -57,7 +57,7 @@ body {
 
 #search-results {
   width: 100%;
-  border: 2px dashed var(--dark-colour);
+  border: 2px dashed var(--dark-accent);
   border-radius: 14px;
   display: flex;
   flex-direction: row;
